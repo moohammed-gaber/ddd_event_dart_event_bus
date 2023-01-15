@@ -7,7 +7,6 @@ class UserLoggedInEventHandler extends DomainEventHandler<UserLoggedInEvent> {
 
   @override
   void handle(UserLoggedInEvent event) {
-    print('handle method called ');
     print(event.name);
   }
 }
