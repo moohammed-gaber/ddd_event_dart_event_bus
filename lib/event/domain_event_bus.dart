@@ -10,11 +10,11 @@ abstract class _DomainEventBus {
 
   void destroy() => eventBus.destroy();
 
-  void registerHandlers() => eventBus
+  void registerAssignedHandlers() => eventBus
       .on<DomainEvent>()
-      .listen((value) => assignHandlers().forEach((e) => e.handle(value)));
+      .listen((value) => assignedHandlers().forEach((e) => e.handle(value)));
 
-  List<DomainEventHandler> assignHandlers();
+  List<DomainEventHandler> assignedHandlers();
 
   _DomainEventBus(this.eventBus);
 }
