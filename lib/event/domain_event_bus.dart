@@ -12,9 +12,9 @@ abstract class _DomainEventBus {
 
   void registerHandlers() => eventBus
       .on<DomainEvent>()
-      .listen((value) => handlers().forEach((e) => e.handle(value)));
+      .listen((value) => assignHandlers().forEach((e) => e.handle(value)));
 
-  List<DomainEventHandler> handlers();
+  List<DomainEventHandler> assignHandlers();
 
   _DomainEventBus(this.eventBus);
 }
