@@ -7,7 +7,7 @@ environment:
   sdk: '>=2.18.4 <3.0.0'
 
 dependencies:
-  event_bus: ^2.0.0
+  event_bus_plus: ^0.6.1
 
 dev_dependencies:
   lints: ^2.0.0

@@ -1,5 +1,5 @@
 import 'package:ddd_event/event/domain_event.dart';
-import 'package:event_bus/event_bus.dart';
+import 'package:event_bus_plus/event_bus_plus.dart';
 
 import 'domain_event_handler.dart';
 
@@ -8,23 +8,18 @@ abstract class _DomainEventBus {
 
   void fire(DomainEvent event) => eventBus.fire(event);
 
-  void destroy() => eventBus.destroy();
+  void registerHandlers() {
+    eventBus.on<DomainEvent>().listen((event) => event.handler.handle(event));
+  }
 
-  void registerHandlers() => eventBus.on<DomainEvent>().listen((value) {
-        for (var e in handlers) {
-          e.handle(value);
-        }
-      });
-
-  List<DomainEventHandler> get handlers;
 
   _DomainEventBus(this.eventBus);
 }
 
 abstract class DomainSynchronousEventBus extends _DomainEventBus {
-  DomainSynchronousEventBus() : super(EventBus(sync: true));
+  DomainSynchronousEventBus() : super(EventBus());
 }
 
 abstract class DomainAsynchronousEventBus extends _DomainEventBus {
-  DomainAsynchronousEventBus() : super(EventBus(sync: false));
+  DomainAsynchronousEventBus() : super(EventBus());
 }

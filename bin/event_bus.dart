@@ -4,9 +4,4 @@ import 'package:ddd_event/event/domain_event_handler.dart';
 
 import 'user_logged_event_handler.dart';
 
-class AppEventBus extends DomainAsynchronousEventBus {
-  @override
-  List<DomainEventHandler<DomainEvent>> get handlers {
-    return [UserLoggedInEventHandler()];
-  }
-}
+class AppEventBus extends DomainAsynchronousEventBus {}

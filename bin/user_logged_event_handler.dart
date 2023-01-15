@@ -6,7 +6,18 @@ class UserLoggedInEventHandler extends DomainEventHandler<UserLoggedInEvent> {
   UserLoggedInEventHandler();
 
   @override
-  void handle(UserLoggedInEvent event) {
-    print(event.name);
+  void handle(
+    UserLoggedInEvent event,
+  ) {
+    print('UserLoggedInEvent');
+  }
+}
+
+class UserLoggedOutEventHandler extends DomainEventHandler<UserLoggedOutEvent> {
+  UserLoggedOutEventHandler();
+
+  @override
+  void handle(UserLoggedOutEvent event) {
+    print('UserLoggedOutEvent');
   }
 }

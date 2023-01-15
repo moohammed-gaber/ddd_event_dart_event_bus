@@ -5,6 +5,7 @@ void main(List<String> arguments) {
   final bus = AppEventBus();
   bus.registerHandlers();
   bus.fire(UserLoggedInEvent('mohamed'));
-
   Future.delayed(Duration(seconds: 3));
+  bus.fire(UserLoggedOutEvent());
+
 }
