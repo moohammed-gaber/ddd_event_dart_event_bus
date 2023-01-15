@@ -9,21 +9,25 @@ class UserLoggedInEvent extends DomainEvent {
 
   UserLoggedInEvent(this.name);
 
+  final _handler = UserLoggedInEventHandler();
+
   @override
   // TODO: implement props
   List<Object?> get props => [name];
 
   @override
   // TODO: implement handler
-  DomainEventHandler<DomainEvent> get handler => UserLoggedInEventHandler();
+  DomainEventHandler<DomainEvent> get handler => _handler;
 }
 
 class UserLoggedOutEvent extends DomainEvent {
   UserLoggedOutEvent();
+  final _handler = UserLoggedOutEventHandler();
 
   @override
   // TODO: implement props
   List<Object?> get props => [];
 
-  DomainEventHandler<DomainEvent> get handler => UserLoggedOutEventHandler();
+  @override
+  DomainEventHandler<DomainEvent> get handler => _handler;
 }
