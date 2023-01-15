@@ -6,13 +6,9 @@ import 'domain_event_handler.dart';
 abstract class _DomainEventBus {
   final EventBus eventBus;
 
-  void fire(DomainEvent event) {
-    eventBus.fire(event);
-  }
+  void fire(DomainEvent event) => eventBus.fire(event);
 
-  void destroy() {
-    eventBus.destroy();
-  }
+  void destroy() => eventBus.destroy();
 
   void registerHandlers() => eventBus
       .on<DomainEvent>()

@@ -6,6 +6,5 @@ void main(List<String> arguments) {
   bus.registerHandlers();
   bus.fire(UserLoggedInEvent('mohamed'));
 
-  // prevent from
   Future.delayed(Duration(seconds: 3));
 }
