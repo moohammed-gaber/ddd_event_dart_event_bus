@@ -1,7 +1,8 @@
 import 'package:ddd_event/event/domain_event.dart';
 import 'package:ddd_event/event/domain_event_handler.dart';
 
-import 'user_logged_event_handler.dart';
+import '../handlers/user_logged_event_handler.dart';
+
 
 class UserLoggedInEvent extends DomainEvent {
   String name;
